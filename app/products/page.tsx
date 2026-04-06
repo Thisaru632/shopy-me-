@@ -6,7 +6,7 @@ import { Footer } from "@/components/landing-page/Footer";
 import { ProductCard } from "@/components/landing-page/ProductCard";
 import { ChevronDown, Filter, LayoutGrid, List, SlidersHorizontal, X, Search } from "lucide-react";
 
-import { allProducts } from "@/lib/data";
+import { extendedProducts } from "@/lib/products_data";
 
 export default function ProductsPage() {
     const [cartCount, setCartCount] = useState(0);
@@ -17,10 +17,10 @@ export default function ProductsPage() {
     const [isListView, setIsListView] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
-    const categories = ["All", "Mobile", "Cosmetics", "Furniture", "Watches", "Decor Accessories"];
+    const categories = ["All", "General"];
 
     const filteredProducts = useMemo(() => {
-        let result = allProducts.filter(p => 
+        let result = extendedProducts.filter(p => 
             (selectedCategory === "All" || p.category === selectedCategory) &&
             parseInt(p.price) <= priceRange &&
             p.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -109,7 +109,7 @@ export default function ProductsPage() {
                                 />
                                 <div className="flex justify-between text-xs font-bold mt-4 text-[#666666]">
                                     <span>₹0</span>
-                                    <span>₹{priceRange.toLocaleString()}</span>
+                                    <span>₹{priceRange.toLocaleString('en-IN')}</span>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +232,7 @@ export default function ProductsPage() {
                                 />
                                 <div className="flex justify-between text-sm font-bold mt-4 text-[#008ECC]">
                                     <span>₹0</span>
-                                    <span>₹{priceRange.toLocaleString()}</span>
+                                    <span>₹{priceRange.toLocaleString('en-IN')}</span>
                                 </div>
                             </div>
 

@@ -11,16 +11,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-import { allProducts } from "@/lib/data";
+import { extendedProducts } from "@/lib/products_data";
 
 export default function Home() {
   const [cartCount, setCartCount] = useState(0);
 
-  const smartphoneProducts = allProducts.filter(p => p.category === "Mobile").slice(0, 5);
-  const cosmeticProducts = allProducts.filter(p => p.category === "Cosmetics").slice(0, 5);
-  const furnitureProducts = allProducts.filter(p => p.category === "Furniture").slice(0, 5);
-  const watchProducts = allProducts.filter(p => p.category === "Watches").slice(0, 5);
-  const decorProducts = allProducts.filter(p => p.category === "Decor Accessories").slice(0, 5);
+  const newArrivals = extendedProducts.slice(0, 5);
+  const trendingProducts = extendedProducts.slice(5, 10);
+  const featuredProducts = extendedProducts.slice(10, 15);
+  const bestSellers = extendedProducts.slice(15, 20);
+  const specialOffers = extendedProducts.slice(20, 25);
 
   const electronicsBrands = [
     { id: 1, name: "IPHONE", discount: "UP TO 80% OFF", bgColor: "bg-[#2B2B2B]", logo: "", image: "/iphone_promo.png" },
@@ -29,13 +29,13 @@ export default function Home() {
   ];
 
   const categories = [
-    { id: 1, name: "Mobile", image: "/s22_ultra.png" },
-    { id: 2, name: "Cosmetics", image: "/cosmetics.png" },
-    { id: 3, name: "Electronics", image: "/electronics.png" },
-    { id: 4, name: "Furniture", image: "/furniture.png" },
-    { id: 5, name: "Watches", image: "/smartwatch.png" },
-    { id: 6, name: "Decor", image: "/essentials.png" },
-    { id: 7, name: "Accessories", image: "/cosmetics.png" },
+    { id: 1, name: "Kitchen", image: "/products/SF 400 Kitchen Scale/IMG-20250821-WA0065.jpg" },
+    { id: 2, name: "Beauty", image: "/products/13 Piece Makeup Brush/IMG-20250821-WA0180.jpg" },
+    { id: 3, name: "Tech", image: "/products/2 IN 1 Smart Wifi Camera/wifiCamera.jpg" },
+    { id: 4, name: "Furniture", image: "/products/C Shaped Side Table/C shaped table.jpg" },
+    { id: 5, name: "Watches", image: "/products/Viokai Golden Mens Watch/WhatsApp Image 2025-08-21 at 19.38.33_6234f9a0.jpg" },
+    { id: 6, name: "Home", image: "/products/85cm Sink Dish Drying Rack/DryingRack.jpg" },
+    { id: 7, name: "Accessories", image: "/products/Animal Slap Bracelet - Stitch Doll/AnimalSlapBracelet.jpg" },
   ];
 
 
@@ -46,9 +46,9 @@ export default function Home() {
       <main>
         <HeroSlider />
         <ProductGrid 
-          title="Grab the best deal on" 
-          subtitle="Smartphones" 
-          products={smartphoneProducts} 
+          title="Explore our" 
+          subtitle="New Arrivals" 
+          products={newArrivals} 
           onAddToCart={() => setCartCount(prev => prev + 1)}
         />
         <CategoryGrid categories={categories} />
@@ -61,30 +61,30 @@ export default function Home() {
         />
         
         <ProductGrid 
-           title="Grab the best deal on" 
-           subtitle="Cosmetics" 
-           products={cosmeticProducts} 
+           title="Check out our" 
+           subtitle="Trending Products" 
+           products={trendingProducts} 
            onAddToCart={() => setCartCount(prev => prev + 1)}
         />
         
         <ProductGrid 
-           title="Grab the best deal on" 
-           subtitle="Furniture" 
-           products={furnitureProducts} 
+           title="Discover our" 
+           subtitle="Featured Selection" 
+           products={featuredProducts} 
            onAddToCart={() => setCartCount(prev => prev + 1)}
         />
         
         <ProductGrid 
-           title="Grab the best deal on" 
-           subtitle="Watches" 
-           products={watchProducts} 
+           title="Our" 
+           subtitle="Best Sellers" 
+           products={bestSellers} 
            onAddToCart={() => setCartCount(prev => prev + 1)}
         />
 
         <ProductGrid 
-           title="Grab the best deal on" 
-           subtitle="Decor Accessories" 
-           products={decorProducts} 
+           title="Great deals in" 
+           subtitle="Special Offers" 
+           products={specialOffers} 
            onAddToCart={() => setCartCount(prev => prev + 1)}
         />
 

@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { Header } from "@/components/landing-page/Header";
 import { Footer } from "@/components/landing-page/Footer";
-import { allProducts } from "@/lib/data";
+import { extendedProducts } from "@/lib/products_data";
 import Image from "next/image";
 import { ShoppingCart, Star, ShieldCheck, Truck, RefreshCw, ChevronLeft, Zap } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +15,7 @@ export default function ProductDetailsPage() {
     const [quantity, setQuantity] = useState(1);
 
     const product = useMemo(() => {
-        return allProducts.find(p => p.id === parseInt(id as string));
+        return extendedProducts.find(p => p.id === parseInt(id as string));
     }, [id]);
 
     if (!product) {
@@ -80,9 +80,9 @@ export default function ProductDetailsPage() {
 
                         <div className="space-y-4">
                             <div className="flex items-end gap-4">
-                                <span className="text-4xl font-bold text-[#008ECC]">₹{product.price}</span>
-                                <span className="text-xl text-gray-400 line-through mb-1">₹{product.originalPrice}</span>
-                                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-xs font-bold mb-1.5">You Save ₹{product.saveDetail}</span>
+                                <span className="text-4xl font-bold text-[#008ECC]">₹{parseInt(product.price).toLocaleString('en-IN')}</span>
+                                <span className="text-xl text-gray-400 line-through mb-1">₹{parseInt(product.originalPrice).toLocaleString('en-IN')}</span>
+                                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-xs font-bold mb-1.5">You Save ₹{parseInt(product.saveDetail || "0").toLocaleString('en-IN')}</span>
                             </div>
                             <div className="flex items-center gap-1 text-green-600 text-sm font-bold">
                                 <ShieldCheck size={18} />
@@ -122,7 +122,7 @@ export default function ProductDetailsPage() {
                         {/* Features List */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 border-t border-gray-100">
                             {[
-                                { icon: Truck, text: "Fast & Free Delivery", sub: "Orders over ₹500" },
+                                { icon: Truck, text: "Fast & Free Delivery", sub: "Orders over ₹" + (500).toLocaleString('en-IN') },
                                 { icon: RefreshCw, text: "7-Days Returns", sub: "Terms & Conditions apply" },
                             ].map((feature, i) => (
                                 <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-[#F3F9FB] border border-transparent hover:border-[#008ECC]/20 transition-all cursor-default group">

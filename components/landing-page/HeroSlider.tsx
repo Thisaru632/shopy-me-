@@ -7,27 +7,27 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
   {
     id: 1,
-    title: "SMART WEARABLE.",
-    subtitle: "Best Deal Online on smart watches",
-    offer: "UP TO 80% OFF",
+    title: "PREMIUM TIMEPIECES.",
+    subtitle: "Best Deal Online on luxury watches",
+    offer: "STARTING FROM ₹1,299",
     bgColor: "bg-[#1D314E]",
-    image: "/smartwatch.png"
+    image: "/products/Viokai Golden Mens Watch/WhatsApp Image 2025-08-21 at 19.38.33_6234f9a0.jpg"
   },
   {
     id: 2,
-    title: "SAMSUNG GALAXY S23",
-    subtitle: "Experience the ultimate flagship",
-    offer: "STARTING FROM ₹67,999",
+    title: "MODERN KITCHEN.",
+    subtitle: "Upgrade your cooking experience",
+    offer: "DEALS STARTING @ ₹899",
     bgColor: "bg-[#2B2B2B]",
-    image: "/s22_ultra.png"
+    image: "/products/SF 400 Kitchen Scale/IMG-20250821-WA0065.jpg"
   },
   {
     id: 3,
-    title: "FRESH ESSENTIALS",
-    subtitle: "Quality groceries delivered fast",
+    title: "SMART SECURITY.",
+    subtitle: "Quality home safety delivered fast",
     offer: "UP TO 50% OFF",
     bgColor: "bg-[#008ECC]",
-    image: "/essentials.png"
+    image: "/products/2 IN 1 Smart Wifi Camera/wifiCamera.jpg"
   }
 ];
 

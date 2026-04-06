@@ -43,12 +43,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
                 <div className="space-y-1 flex-1">
                     <h3 className="font-semibold text-sm line-clamp-1 group-hover:text-[#008ECC] transition-colors">{product.name}</h3>
                     <div className="flex items-center gap-2">
-                        <span className="font-bold">₹{product.price}</span>
-                        <span className="text-xs text-gray-400 line-through">₹{product.originalPrice}</span>
+                        <span className="font-bold">₹{parseInt(product.price).toLocaleString('en-IN')}</span>
+                        <span className="text-xs text-gray-400 line-through">₹{parseInt(product.originalPrice).toLocaleString('en-IN')}</span>
                     </div>
                     <div className="text-[10px] text-green-600 font-bold border-t border-gray-100 pt-2 flex items-center gap-1 mt-auto">
                         <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                        Save - ₹{product.saveDetail}
+                        Save - ₹{parseInt(product.saveDetail || "0").toLocaleString('en-IN') || product.saveDetail}
                     </div>
                 </div>
             </Link>
