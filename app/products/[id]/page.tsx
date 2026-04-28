@@ -41,9 +41,6 @@ export default function ProductDetailsPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     {/* Image Section */}
                     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative group">
-                        <div className="absolute top-6 right-6 bg-[#008ECC] text-white px-4 py-2 rounded-xl font-bold text-sm z-10 shadow-lg">
-                            {product.discount} OFF
-                        </div>
                         <div className="aspect-square relative w-full overflow-hidden rounded-2xl bg-gray-50 flex items-center justify-center p-12">
                             {product.image ? (
                                 <Image 
@@ -80,9 +77,7 @@ export default function ProductDetailsPage() {
 
                         <div className="space-y-4">
                             <div className="flex items-end gap-4">
-                                <span className="text-4xl font-bold text-[#008ECC]">₹{parseInt(product.price).toLocaleString('en-IN')}</span>
-                                <span className="text-xl text-gray-400 line-through mb-1">₹{parseInt(product.originalPrice).toLocaleString('en-IN')}</span>
-                                <span className="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-xs font-bold mb-1.5">You Save ₹{parseInt(product.saveDetail || "0").toLocaleString('en-IN')}</span>
+                                <span className="text-4xl font-bold text-[#008ECC]">Rs {product.price}</span>
                             </div>
                             <div className="flex items-center gap-1 text-green-600 text-sm font-bold">
                                 <ShieldCheck size={18} />
@@ -113,7 +108,13 @@ export default function ProductDetailsPage() {
                                 </button>
                             </div>
                             
-                            <button className="w-full bg-[#2B2B2B] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-black hover:scale-[1.01] shadow-2xl transition-all active:scale-95 border border-black group">
+                            <button 
+                                onClick={() => {
+                                    const text = encodeURIComponent(`Hello! I would like to place an order:\n\nProduct: ${product.name}\nQuantity: ${quantity}\nPrice: Rs ${product.price}`);
+                                    window.open(`https://wa.me/94789312060?text=${text}`, '_blank');
+                                }}
+                                className="w-full bg-[#2B2B2B] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-black hover:scale-[1.01] shadow-2xl transition-all active:scale-95 border border-black group"
+                            >
                                 <Zap size={20} className="text-amber-400 group-hover:scale-125 transition-transform" />
                                 Place Order
                             </button>
@@ -122,7 +123,7 @@ export default function ProductDetailsPage() {
                         {/* Features List */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 border-t border-gray-100">
                             {[
-                                { icon: Truck, text: "Fast & Free Delivery", sub: "Orders over ₹" + (500).toLocaleString('en-IN') },
+                                { icon: Truck, text: "Fast & Free Delivery", sub: "Orders over Rs 500" },
                                 { icon: RefreshCw, text: "7-Days Returns", sub: "Terms & Conditions apply" },
                             ].map((feature, i) => (
                                 <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-[#F3F9FB] border border-transparent hover:border-[#008ECC]/20 transition-all cursor-default group">

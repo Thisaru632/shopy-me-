@@ -21,7 +21,9 @@ export default function Home() {
   const featuredProducts = extendedProducts.slice(10, 15);
   const bestSellers = extendedProducts.slice(15, 20);
   const specialOffers = extendedProducts.slice(20, 25);
-
+  const electronics = extendedProducts.filter(p => p.category === "Electronics & Gadgets").slice(0, 5);
+  const homeAndKitchen = extendedProducts.filter(p => p.category === "Home & Kitchen").slice(0, 5);
+  const automotive = extendedProducts.filter(p => p.category === "Automotive & Outdoors").slice(0, 5);
   const electronicsBrands = [
     { id: 1, name: "IPHONE", discount: "UP TO 80% OFF", bgColor: "bg-[#2B2B2B]", logo: "", image: "/iphone_promo.png" },
     { id: 2, name: "REALME", discount: "UP TO 80% OFF", bgColor: "bg-[#FFF9E6]", logo: "realme", textColor: "text-amber-900", image: "/realme_promo.png" },
@@ -33,7 +35,7 @@ export default function Home() {
     { id: 2, name: "Beauty", image: "/products/13 Piece Makeup Brush/IMG-20250821-WA0180.jpg" },
     { id: 3, name: "Tech", image: "/products/2 IN 1 Smart Wifi Camera/wifiCamera.jpg" },
     { id: 4, name: "Furniture", image: "/products/C Shaped Side Table/C shaped table.jpg" },
-    { id: 5, name: "Watches", image: "/products/Viokai Golden Mens Watch/WhatsApp Image 2025-08-21 at 19.38.33_6234f9a0.jpg" },
+    { id: 5, name: "Watches", image: "/products/Viokai Golden Mens Watch/WhatsApp Image 2025-08-21 at 19.14.27_85ef9564.jpg" },
     { id: 6, name: "Home", image: "/products/85cm Sink Dish Drying Rack/DryingRack.jpg" },
     { id: 7, name: "Accessories", image: "/products/Animal Slap Bracelet - Stitch Doll/AnimalSlapBracelet.jpg" },
   ];
@@ -88,6 +90,32 @@ export default function Home() {
            onAddToCart={() => setCartCount(prev => prev + 1)}
         />
 
+        {electronics.length > 0 && (
+            <ProductGrid 
+               title="Top Tech in" 
+               subtitle="Electronics & Gadgets" 
+               products={electronics} 
+               onAddToCart={() => setCartCount(prev => prev + 1)}
+            />
+        )}
+
+        {homeAndKitchen.length > 0 && (
+            <ProductGrid 
+               title="Essentials for" 
+               subtitle="Home & Kitchen" 
+               products={homeAndKitchen} 
+               onAddToCart={() => setCartCount(prev => prev + 1)}
+            />
+        )}
+        
+        {automotive.length > 0 && (
+            <ProductGrid 
+               title="Gear for" 
+               subtitle="Automotive & Outdoors" 
+               products={automotive} 
+               onAddToCart={() => setCartCount(prev => prev + 1)}
+            />
+        )}
         <div className="flex justify-center py-8 md:py-12">
             <Link href="/products">
                 <button className="bg-[#008ECC] text-white px-10 py-4 rounded-full font-bold hover:bg-[#007ba8] transition-all shadow-xl hover:scale-105 active:scale-95 text-lg">
@@ -99,7 +127,7 @@ export default function Home() {
         {/* Newsletter Section */}
         <section className="bg-[#F3F9FB] py-12 md:py-16 mt-8 md:mt-12 px-4 md:px-0">
           <div className="container-custom text-center max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Stay updated with MegaMart</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Stay updated with evision</h2>
             <p className="text-sm md:text-base text-[#666666] mb-6 md:mb-8">Subscribe to our newsletter and never miss out on any amazing deals or updates.</p>
             <div className="flex flex-col md:flex-row gap-3 md:gap-4 max-w-md mx-auto">
               <input 

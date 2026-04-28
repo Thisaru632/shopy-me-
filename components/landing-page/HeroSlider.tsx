@@ -9,15 +9,15 @@ const slides = [
     id: 1,
     title: "PREMIUM TIMEPIECES.",
     subtitle: "Best Deal Online on luxury watches",
-    offer: "STARTING FROM ₹1,299",
+    offer: "STARTING FROM Rs 1,299",
     bgColor: "bg-[#1D314E]",
-    image: "/products/Viokai Golden Mens Watch/WhatsApp Image 2025-08-21 at 19.38.33_6234f9a0.jpg"
+    image: "/products/Viokai Golden Mens Watch/WhatsApp Image 2025-08-21 at 19.14.27_85ef9564.jpg"
   },
   {
     id: 2,
     title: "MODERN KITCHEN.",
     subtitle: "Upgrade your cooking experience",
-    offer: "DEALS STARTING @ ₹899",
+    offer: "DEALS STARTING @ Rs 899",
     bgColor: "bg-[#2B2B2B]",
     image: "/products/SF 400 Kitchen Scale/IMG-20250821-WA0065.jpg"
   },

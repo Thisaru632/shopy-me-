@@ -100,10 +100,6 @@ export const BrandRow = ({ title, subtitle, brands, variant = "product" }: Brand
                         >
                             {/* Brand Image/Logo Container */}
                             <div className="h-32 md:h-48 flex items-center justify-center mb-4 bg-gray-50 rounded-xl overflow-hidden relative group-hover:bg-gray-100 transition-colors">
-                                <div className="absolute top-0 right-0 bg-[#008ECC] text-white text-[9px] px-2 py-3 rounded-bl-xl font-bold flex flex-col items-center z-10 shadow-sm opacity-90">
-                                    <span className="leading-none">{brand.discount.replace("UP TO ", "")}</span>
-                                    <span className="text-[7px] leading-none mt-1 uppercase">Off</span>
-                                </div>
                                 <div className="w-24 h-24 md:w-32 md:h-32 relative group-hover:scale-110 transition-transform duration-500">
                                     <Image src={brand.image} alt={brand.name} fill className="object-contain p-2" />
                                 </div>

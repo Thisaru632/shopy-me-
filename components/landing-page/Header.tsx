@@ -15,7 +15,7 @@ export const Header = ({ cartCount = 0 }: { cartCount?: number }) => {
       {/* Top Header */}
       <div className="bg-[#F5F5F5] py-2 px-4 text-[10px] md:text-xs text-[#666666]">
         <div className="container-custom flex justify-center md:justify-between items-center">
-          <div className="truncate">Welcome to worldwide Megamart!</div>
+          <div className="truncate">Welcome to worldwide evision!</div>
           <div className="hidden md:flex gap-4">
             <div className="flex items-center gap-1 cursor-pointer hover:text-black">
               <MapPin size={14} className="text-[#008ECC]" />
@@ -41,7 +41,7 @@ export const Header = ({ cartCount = 0 }: { cartCount?: number }) => {
                 <div className="bg-[#008ECC] p-1.5 md:p-2 rounded-lg group-hover:scale-110 transition-transform">
                   <LayoutGrid className="text-white w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="text-xl md:text-2xl font-bold text-[#008ECC]">MegaMart</span>
+                <span className="text-xl md:text-2xl font-bold text-[#008ECC]">evision</span>
               </Link>
             </div>
 
@@ -110,7 +110,7 @@ export const Header = ({ cartCount = 0 }: { cartCount?: number }) => {
             All Products <ChevronDown size={16} />
           </Link>
           {[
-            "Groceries", "Cosmetics", "Electronics", "Furniture", "Watches", "Decor Accessories"
+            "Electronics & Gadgets", "Home & Kitchen", "Health & Beauty", "Fashion & Accessories", "Automotive & Outdoors"
           ].map((item) => (
             <Link key={item} href="/products" className="flex items-center gap-1 cursor-pointer hover:text-[#008ECC] transition-all whitespace-nowrap group relative">
               {item} <ChevronDown size={14} className="text-[#008ECC] group-hover:rotate-180 transition-transform duration-300" />

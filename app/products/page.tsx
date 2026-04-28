@@ -17,7 +17,7 @@ export default function ProductsPage() {
     const [isListView, setIsListView] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
-    const categories = ["All", "General"];
+    const categories = ["All", "Electronics & Gadgets", "Home & Kitchen", "Health & Beauty", "Fashion & Accessories", "Automotive & Outdoors"];
 
     const filteredProducts = useMemo(() => {
         let result = extendedProducts.filter(p => 
@@ -108,8 +108,8 @@ export default function ProductsPage() {
                                     className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#008ECC]"
                                 />
                                 <div className="flex justify-between text-xs font-bold mt-4 text-[#666666]">
-                                    <span>₹0</span>
-                                    <span>₹{priceRange.toLocaleString('en-IN')}</span>
+                                    <span>Rs 0</span>
+                                    <span>Rs {priceRange}</span>
                                 </div>
                             </div>
                         </div>
@@ -231,8 +231,8 @@ export default function ProductsPage() {
                                     className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#008ECC]"
                                 />
                                 <div className="flex justify-between text-sm font-bold mt-4 text-[#008ECC]">
-                                    <span>₹0</span>
-                                    <span>₹{priceRange.toLocaleString('en-IN')}</span>
+                                    <span>Rs 0</span>
+                                    <span>Rs {priceRange}</span>
                                 </div>
                             </div>
 

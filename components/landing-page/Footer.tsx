@@ -17,7 +17,7 @@ export const Footer = () => {
                     <div className="bg-white p-2 rounded-lg">
                         <LayoutGrid className="text-[#008ECC] w-5 h-5 md:w-6 md:h-6" />
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold">MegaMart</span>
+                    <span className="text-2xl md:text-3xl font-bold">evision</span>
                 </div>
 
                 <div className="space-y-4">
