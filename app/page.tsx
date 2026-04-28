@@ -24,11 +24,18 @@ export default function Home() {
   const electronics = extendedProducts.filter(p => p.category === "Electronics & Gadgets").slice(0, 5);
   const homeAndKitchen = extendedProducts.filter(p => p.category === "Home & Kitchen").slice(0, 5);
   const automotive = extendedProducts.filter(p => p.category === "Automotive & Outdoors").slice(0, 5);
-  const electronicsBrands = [
-    { id: 1, name: "IPHONE", discount: "UP TO 80% OFF", bgColor: "bg-[#2B2B2B]", logo: "", image: "/iphone_promo.png" },
-    { id: 2, name: "REALME", discount: "UP TO 80% OFF", bgColor: "bg-[#FFF9E6]", logo: "realme", textColor: "text-amber-900", image: "/realme_promo.png" },
-    { id: 3, name: "XIAOMI", discount: "UP TO 80% OFF", bgColor: "bg-[#FFF2EB]", logo: "MI", textColor: "text-orange-900", image: "/xiaomi_promo.png" },
-  ];
+  const newImageItems = extendedProducts.filter(p => p.image.includes('/new image/') || p.image.includes('/new%20image/'));
+  const electronicsBrands = newImageItems.length >= 3 
+    ? [
+        { id: newImageItems[0].id, name: "NEW ARRIVAL", discount: "UP TO 50% OFF", bgColor: "bg-[#2B2B2B]", logo: "HOT DEAL", image: newImageItems[0].image },
+        { id: newImageItems[1].id, name: "BEST SELLER", discount: "UP TO 50% OFF", bgColor: "bg-[#FFF9E6]", logo: "TREND", textColor: "text-amber-900", image: newImageItems[1].image },
+        { id: newImageItems[2].id, name: "LIMITED TIME", discount: "UP TO 50% OFF", bgColor: "bg-[#FFF2EB]", logo: "PROMO", textColor: "text-orange-900", image: newImageItems[2].image },
+      ]
+    : [
+        { id: 1, name: "IPHONE", discount: "UP TO 80% OFF", bgColor: "bg-[#2B2B2B]", logo: "", image: "/iphone_promo.png" },
+        { id: 2, name: "REALME", discount: "UP TO 80% OFF", bgColor: "bg-[#FFF9E6]", logo: "realme", textColor: "text-amber-900", image: "/realme_promo.png" },
+        { id: 3, name: "XIAOMI", discount: "UP TO 80% OFF", bgColor: "bg-[#FFF2EB]", logo: "MI", textColor: "text-orange-900", image: "/xiaomi_promo.png" },
+      ];
 
   const categories = [
     { id: 1, name: "Kitchen", image: "/products/SF 400 Kitchen Scale/IMG-20250821-WA0065.jpg" },
