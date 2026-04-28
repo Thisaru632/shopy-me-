@@ -134,7 +134,7 @@ export const Header = ({ cartCount = 0 }: { cartCount?: number }) => {
             </div>
             <div className="p-4 overflow-y-auto h-[calc(100%-70px)]">
               <div className="space-y-1">
-                {["Mobile", "Cosmetics", "Electronics", "Furniture", "Watches", "Decor Accessories"].map(item => (
+                {["Electronics & Gadgets", "Home & Kitchen", "Health & Beauty", "Fashion & Accessories", "Automotive & Outdoors"].map(item => (
                   <div key={item} className="px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[#F3F9FB] hover:text-[#008ECC] rounded-xl transition-colors cursor-pointer flex justify-between items-center">
                     {item} <ChevronDown size={16} className="-rotate-90 text-gray-300" />
                   </div>
