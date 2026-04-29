@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 interface Category {
@@ -57,7 +58,11 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ categories }) => {
         className="flex gap-6 md:gap-10 overflow-x-auto pb-6 scrollbar-hide snap-x px-4 md:px-0"
       >
         {categories.map((category) => (
-          <div key={category.id} className="flex flex-col items-center gap-2 md:gap-3 min-w-[80px] md:min-w-[100px] cursor-pointer group snap-start">
+          <Link 
+            href={`/products?category=${encodeURIComponent(category.name)}`} 
+            key={category.id} 
+            className="flex flex-col items-center gap-2 md:gap-3 min-w-[80px] md:min-w-[100px] cursor-pointer group snap-start"
+          >
             <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#F3F9FB] border-2 border-transparent group-hover:border-[#008ECC] flex items-center justify-center p-3 md:p-4 transition-all group-hover:scale-110 shadow-sm relative overflow-hidden">
                 {category.image ? (
                   <Image src={category.image} alt={category.name} fill className="object-contain p-3 md:p-4 group-hover:rotate-6 transition-transform duration-500" />
@@ -66,7 +71,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ categories }) => {
                 )}
             </div>
             <span className="text-[10px] md:text-sm font-medium text-[#666666] group-hover:text-[#008ECC] transition-colors text-center">{category.name}</span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

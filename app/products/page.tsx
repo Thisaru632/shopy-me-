@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Header } from "@/components/landing-page/Header";
 import { Footer } from "@/components/landing-page/Footer";
 import { ProductCard } from "@/components/landing-page/ProductCard";
@@ -8,9 +9,18 @@ import { ChevronDown, Filter, LayoutGrid, List, SlidersHorizontal, X, Search } f
 
 import { extendedProducts } from "@/lib/products_data";
 
-export default function ProductsPage() {
+function ProductsPageContent() {
+    const searchParams = useSearchParams();
+    const categoryParam = searchParams.get('category');
+
     const [cartCount, setCartCount] = useState(0);
-    const [selectedCategory, setSelectedCategory] = useState<string>("All");
+    const [selectedCategory, setSelectedCategory] = useState<string>(categoryParam || "All");
+
+    useEffect(() => {
+        if (categoryParam) {
+            setSelectedCategory(categoryParam);
+        }
+    }, [categoryParam]);
     const [priceRange, setPriceRange] = useState<number>(100000);
     const [sortBy, setSortBy] = useState<string>("Popularity");
     const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
@@ -249,5 +259,13 @@ export default function ProductsPage() {
 
             <Footer />
         </div>
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+            <ProductsPageContent />
+        </Suspense>
     );
 }

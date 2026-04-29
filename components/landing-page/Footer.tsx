@@ -25,15 +25,8 @@ export const Footer = () => {
                     <div className="flex items-center gap-4 group cursor-pointer">
                         <MessageCircle className="text-white/80 group-hover:text-white w-4 h-4 md:w-5 md:h-5" />
                         <div className="flex flex-col">
-                            <span className="text-[10px] md:text-xs text-white/60 font-medium">Whats App</span>
-                            <span className="text-xs md:text-sm font-bold">+1 202-918-2132</span>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 group cursor-pointer">
-                        <Phone className="text-white/80 group-hover:text-white w-4 h-4 md:w-5 md:h-5" />
-                        <div className="flex flex-col">
-                            <span className="text-[10px] md:text-xs text-white/60 font-medium">Call Us</span>
-                            <span className="text-xs md:text-sm font-bold">+1 202-918-2132</span>
+                            <span className="text-[10px] md:text-xs text-white/60 font-medium">WhatsApp</span>
+                            <span className="text-xs md:text-sm font-bold">0789312060</span>
                         </div>
                     </div>
                 </div>
