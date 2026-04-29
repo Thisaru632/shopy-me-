@@ -112,7 +112,7 @@ export const Header = ({ cartCount = 0 }: { cartCount?: number }) => {
           {[
             "Electronics & Gadgets", "Home & Kitchen", "Health & Beauty", "Fashion & Accessories", "Automotive & Outdoors"
           ].map((item) => (
-            <Link key={item} href="/products" className="flex items-center gap-1 cursor-pointer hover:text-[#008ECC] transition-all whitespace-nowrap group relative">
+            <Link key={item} href={`/products?category=${encodeURIComponent(item)}`} className="flex items-center gap-1 cursor-pointer hover:text-[#008ECC] transition-all whitespace-nowrap group relative">
               {item} <ChevronDown size={14} className="text-[#008ECC] group-hover:rotate-180 transition-transform duration-300" />
             </Link>
           ))}
@@ -135,9 +135,9 @@ export const Header = ({ cartCount = 0 }: { cartCount?: number }) => {
             <div className="p-4 overflow-y-auto h-[calc(100%-70px)]">
               <div className="space-y-1">
                 {["Electronics & Gadgets", "Home & Kitchen", "Health & Beauty", "Fashion & Accessories", "Automotive & Outdoors"].map(item => (
-                  <div key={item} className="px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[#F3F9FB] hover:text-[#008ECC] rounded-xl transition-colors cursor-pointer flex justify-between items-center">
+                  <Link href={`/products?category=${encodeURIComponent(item)}`} key={item} onClick={() => setIsMenuOpen(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[#F3F9FB] hover:text-[#008ECC] rounded-xl transition-colors cursor-pointer flex justify-between items-center block">
                     {item} <ChevronDown size={16} className="-rotate-90 text-gray-300" />
-                  </div>
+                  </Link>
                 ))}
               </div>
               <div className="mt-8 pt-6 border-t border-gray-100 space-y-4 px-4">

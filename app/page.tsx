@@ -103,6 +103,7 @@ export default function Home() {
                subtitle="Electronics & Gadgets" 
                products={electronics} 
                onAddToCart={() => setCartCount(prev => prev + 1)}
+               viewAllLink="/products?category=Electronics%20%26%20Gadgets"
             />
         )}
 
@@ -112,6 +113,7 @@ export default function Home() {
                subtitle="Home & Kitchen" 
                products={homeAndKitchen} 
                onAddToCart={() => setCartCount(prev => prev + 1)}
+               viewAllLink="/products?category=Home%20%26%20Kitchen"
             />
         )}
         
@@ -121,6 +123,7 @@ export default function Home() {
                subtitle="Automotive & Outdoors" 
                products={automotive} 
                onAddToCart={() => setCartCount(prev => prev + 1)}
+               viewAllLink="/products?category=Automotive%20%26%20Outdoors"
             />
         )}
         <div className="flex justify-center py-8 md:py-12">

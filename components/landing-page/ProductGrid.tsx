@@ -13,9 +13,10 @@ interface ProductGridProps {
   subtitle?: string;
   products: Product[];
   onAddToCart?: () => void;
+  viewAllLink?: string;
 }
 
-export const ProductGrid: React.FC<ProductGridProps> = ({ title, subtitle, products, onAddToCart }) => {
+export const ProductGrid: React.FC<ProductGridProps> = ({ title, subtitle, products, onAddToCart, viewAllLink = "/products" }) => {
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -30,10 +31,17 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ title, subtitle, produ
     <div className="container-custom py-6 md:py-8">
       <div className="flex justify-between items-center mb-6 pb-2 border-b-2 border-[#008ECC] flex-wrap gap-4 px-2 md:px-0">
         <h2 className="text-lg md:text-xl font-bold text-[#666666]">
-          {title} <span className="text-[#008ECC]">{subtitle}</span>
+          {title}{" "}
+          {viewAllLink !== "/products" && subtitle ? (
+            <Link href={viewAllLink} className="text-[#008ECC] hover:underline cursor-pointer">
+              {subtitle}
+            </Link>
+          ) : (
+            <span className="text-[#008ECC]">{subtitle}</span>
+          )}
         </h2>
         <div className="flex items-center gap-4">
-          <Link href="/products" className="flex items-center gap-1 text-[#666666] text-xs md:text-sm cursor-pointer hover:text-[#008ECC] transition-colors">
+          <Link href={viewAllLink} className="flex items-center gap-1 text-[#666666] text-xs md:text-sm cursor-pointer hover:text-[#008ECC] transition-colors">
             View All <ChevronRight size={16} />
           </Link>
           <div className="hidden md:flex gap-2">
